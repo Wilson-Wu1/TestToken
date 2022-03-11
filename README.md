@@ -2,7 +2,7 @@
 A basic decentralized application comprised of an ERC20 token smart contract and a front-end website.
 The contract was deployed on the Polygon Mainnet.
 
-The frontend supports the following functions
+The frontend supports the following functions:
 
 - Query an addresses balance of Willy Tokens
 - Mint Willy Tokens
