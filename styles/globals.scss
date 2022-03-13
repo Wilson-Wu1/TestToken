@@ -8,6 +8,7 @@ body {
   color: black;
   font-family: Montserrat, Arial, Helvetica, sans-serif;
   font-weight:normal;
+  width:100%;
 }
 
 :root{
@@ -31,7 +32,10 @@ header{
   margin: 0 auto;
   
   //margin-right:20em;
-
+  nav{
+    //color:black;
+    //display:block;  
+  }
   .symbol_logo{
     //height:4em;
     justify-content: center;
@@ -49,7 +53,7 @@ header{
     display:flex;
     align-items: center;
     justify-content: space-between;
-    width:58%;
+    width:60%;
   }
 
   .nav-image{
@@ -87,11 +91,17 @@ header{
   .primary-nav li{
     display: inline-block;
     padding: 0px 20px;
-    
-
-    
+  
   }
 }
+  .exit-button{
+    display:none;
+  }
+
+  .hamburger{
+    display:none;
+  }
+
   .button-div{
     display:flex;
   }
@@ -278,27 +288,29 @@ header{
 
   .hero .container{
     display:flex;
-    justify-content: space-between;
+    //justify-content: space-between;
     
 
   }
   @keyframes hero-image-animation {
-    0%   {left:0px; top:0px; opacity:1;}
-    100%  {left:500px; top:0px; opacity:0;}
+    0%   {opacity:1;}
+    100%  { opacity:0;}
 
   }
 
   .hero-image{
     
     position: relative;
-    height: 400px;
-    width: 400px;
+    height: 20em;
+    width: 20em;
     right:0em;
     padding-bottom:2em;
     
     animation-name: hero-image-animation ;
     animation-duration: 1.2s;
     animation-direction:reverse;
+
+    //display:none;
   }
 
   
@@ -310,7 +322,7 @@ header{
 
     background: linear-gradient(0deg, rgba(215,202,236,1) 0%, rgba(255,255,255,1) 80%);
     
-    height: 50em;
+    height: 54em;
     padding: 0;
     padding-top: 5em;
     
@@ -379,7 +391,7 @@ header{
     font-weight: 500;
     font-size: 1.28em;
     margin-top: 2em;
-    margin-bottom:0;
+    margin-bottom:1em;
   }
 
   .token-info-medium1{
@@ -453,19 +465,21 @@ header{
   }
   .token-container1{
     display: flex;
-    justify-content: space-between;
+    //justify-content: space-between;
     font-size: 2em;
     margin-top:2.5em;
+    margin-bottom:1em;
     font-weight:bold;
     color:rgb(84, 34, 149);
     
     
     .token-left{
-      margin: 0%; padding: 1%; width: 8%; height:6em; text-align:left; background-color: white;
+      margin: 0%; padding: 0.7em; width: 6em; height:6em; text-align:left; background-color: white;
       box-shadow: rgb(162, 136, 200) 0px 0px 5px inset;
       background-color:rgb(247, 240, 251);
       border-radius: 25px;
-      margin-left:33%;
+      margin-left:auto;
+      margin-right:1em;
       text-align: center;
       .token-left-text{
         font-size:0.9em;
@@ -482,13 +496,13 @@ header{
       border-radius: 25px;
       margin:1.3em 0;
       box-shadow: rgb(136, 136, 136) 0px 0px 5px;
-      align-items: center;
+      //align-items: center;
     }
 
 
 
     .token-middle{
-      margin: 0%; padding: 1%; width: 8%; height:6em; text-align:left; background-color:white;
+      margin: 0%; padding: 0.7em; width: 6em; height:6em; text-align:left; background-color:white;
       border-radius: 25px;
       border-color: rgb(231, 227, 235);
       box-shadow: rgb(162, 136, 200) 0px 0px 5px inset;
@@ -509,19 +523,20 @@ header{
       border-radius: 25px;
       margin:1.3em 0;
       box-shadow: rgb(136, 136, 136) 0px 0px 5px;
-      align-items: center;
+      //align-items: center;
       
     }
 
 
 
     .token-right{
-      margin: 0%; padding: 1%; width: 8%; height:6em; text-align:left; background-color: white;
+      margin: 0%; padding: 0.7em; width: 6em; height:6em; text-align:left; background-color: white;
       box-shadow: rgb(162, 136, 200) 0px 0px 5px inset;
       border-color: rgb(231, 227, 235);
       background-color:rgb(247, 240, 251);
       border-radius: 25px;
-      margin-right:33%;
+      margin-right:auto;
+      margin-left:1em;
       text-align: center;
 
       .token-right-text{
@@ -588,6 +603,8 @@ header{
     animation-name: rocket-animation ;
     animation-duration: 1.2s;
     animation-direction:reverse;
+
+    display:none;
   }
   
   .sc-header{
@@ -620,11 +637,13 @@ header{
 
   }
   .sc-query{
-    margin: 0%; padding: 0%; width: 17%; height:35em; text-align:left; background-color: white;
+    margin: 0%; padding: 0%; width: 25em; height:35em; text-align:left; background-color: white;
     //box-shadow: rgb(238, 234, 244) 0px 0px 5px;
     //border: 0.15em solid rgb(218, 218, 218);
     border-radius: 25px;
-    margin-left:22%;
+    //margin-left:22%;
+    margin-left:auto;
+    margin-right:2em;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.7);
     z-index: 4;
@@ -697,7 +716,7 @@ header{
 
 
   .sc-mint{
-    margin: 0%; padding: 0%; width: 17%; height:35em; text-align:left; background-color: white;
+    margin: 0%; padding: 0%; width:25em; height:35em; text-align:left; background-color: white;
     border-radius: 25px;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.7);
@@ -771,11 +790,13 @@ header{
   
 
   .sc-transfer{
-    margin: 0%; padding: 0%; width: 17%; height:35em; text-align:left; background-color: white;
+    margin: 0%; padding: 0%; width:25em; height:35em; text-align:left; background-color: white;
     //box-shadow: rgb(238, 234, 244) 0px 0px 5px;
     //border: 0.15em solid rgb(218, 218, 218);
     border-radius: 25px;
-    margin-right:22%;
+    //margin-right:22%;
+    margin-right:auto;
+    margin-left:2em;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.7);
     z-index: 4;
@@ -929,6 +950,31 @@ header{
   animation: fadein 0.5s;
 }
 
+#incorrectWalletDiv {
+  visibility: hidden; /* Hidden by default. Visible on click */
+  min-width: 250px; /* Set a default minimum width */
+  margin-left: -125px; /* Divide value of min-width by 2 */
+  background-color: #333; /* Black background color */
+  color: #fff; /* White text color */
+  text-align: center; /* Centered text */
+  border-radius: 2px; /* Rounded borders */
+  padding: 16px; /* Padding */
+  position: fixed; /* Sit on top of the screen */
+  z-index: 6; /* Add a z-index if needed */
+  left: 50%; /* Center the snackbar */
+  bottom: 30px; /* 30px from the bottom */
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#incorrectWalletDiv.show {
+  visibility: visible; /* Show the snackbar */
+  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+  However, delay the fade out process for 2.5 seconds */
+
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
 /* Animations to fade the snackbar in and out */
 @-webkit-keyframes fadein {
   from {bottom: 0; opacity: 0;}
@@ -948,6 +994,245 @@ header{
 @keyframes fadeout {
   from {bottom: 30px; opacity: 1;}
   to {bottom: 0; opacity: 0;}
+}
+
+  //--------------------------------------------------------------//
+  //--- Tablet View ---
+  //--------------------------------------------------------------//
+  @media only screen and (min-width: 1119px){
+    nav{
+      display:block !important;
+      
+    }
+  }
+  @media only screen and (max-width: 1118px){
+  //HERO & NAV
+  .hero{
+    height:100%;
+    padding:1em;
+    padding-top:3em;
+    h1{
+      font-size:2.5em;
+    }
+    h2{
+      font-size:2em;
+    }
+  }
+
+  .left-col{
+    margin: auto;
+  }
+  .hero-image{
+    display:none;   
+    
+  }
+
+
+  nav{
+    display:none;
+    position:fixed;
+    z-index:9;
+    background: rgb(155,98,255);
+    background: linear-gradient(52deg, rgba(155,98,255,1) 9%, rgba(255,143,143,1) 83%);
+    width: 45%;
+    top:0;
+    right:0;
+    height:100vh;
+    padding: 1em;
+
+  }
+
+  .primary-nav{
+    display: flex;
+    flex-direction: column;
+
+  }
+  li{
+    a{
+      color: white;
+      text-decoration: none;
+      display:block;
+      padding: .5em;
+      font-size:1.3em;
+      text-align: right;
+    }
+    &:hover{
+      color: #007AFE;
+    }
+  }
+  .exit-button{
+    color: white;
+    font-size:1.5em;
+    font-weight:500;
+    cursor:pointer;
+    
+    text-align: left;
+    display:inline;
+    
+    
+  }
+  .exit-button-li{
+    margin-bottom:2em;
+  }
+  .hamburger{
+    cursor:pointer;
+    display:inline;
+    margin-right:10px;
+    flex-shrink: 0;
+    margin-right: 20px;
+  }
+  
+
+  //TOKEN
+  .token-info-text-top, .token-info-text-bottom{
+    font-size:2.3em;
+  }
+  .token-info-medium, .token-info-medium1, .token-info-small{
+    font-size: 0.9em;
+  }
+  .token-left, .token-middle, .token-right{
+    font-size: 0.9em;
+  }
+  //SMART CONTRACT
+  .sc{
+    height:220%;
+  }
+  .sc-container{
+    flex-direction:column;
+  }
+  .sc-query, .sc-mint, .sc-transfer{
+    width:80%;
+    height: 50%;
+    align-items:center;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+  .sc-query-container, .sc-mint-container, .sc-transfer-container{
+
+    margin-top:40px !important;
+    margin-bottom:50px;
+  }
+    
+}
+
+  //--------------------------------------------------------------//
+  //--- Mobile View ---
+  //--------------------------------------------------------------//
+
+@media only screen and (max-width: 770px){
+ 
+  body{
+    //font-size: 0.
+  }
+
+  //NAV
+  header{
+    padding: 0.5em;
+    
+  }
+  
+  nav{
+    //display:none;
+
+  }
+
+  .nav-image{
+    display:none;
+    //width: 14%!important;
+    //height:14%!important;
+  }
+
+  .logo{
+    font-size:20px !important;
+    //padding:0
+    top: 0.5px;
+    
+  }
+  .button{
+    font-size:10px;
+    padding:7px;
+
+  }
+  
+
+  .hamburger{
+    
+  }
+
+  //HERO 
+
+  .hero-image{
+    display:none;
+  }
+
+   .rocket , .button-add-token{
+    display:none;
+  }
+
+
+  .hero h2, .hero h1 {
+    word-wrap: break-word;
+    width:100%;
+  }
+
+  .hero-cta{
+    display:flex;
+    flex-direction:column;
+    //align-items:center;
+    width:180px;
+  }
+  .subhead{
+    font-size: 1.1em;
+    //margin-bottom:10%;
+  }
+  .hero-button, .trade-now {
+    
+    text-align:center;
+    margin:0;
+    margin-bottom:10px;
+    font-size:1em;
+  }
+
+
+
+
+  //TOKEN 
+
+  .token{
+    height: 300%; 
+  }
+  .token-container1{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .token-left, .token-middle, .token-right{
+
+    margin:0 !important; //If not `!important`, does not set margin to 0 :(
+    margin-bottom: 20px !important;
+
+  }
+  //SMART CONTRACT 
+
+  .sc-header, .sc-header1{
+    font-size: 2.3em;
+    
+  }
+  .sc-123{
+    display:block;
+  }
+  
+  .sc-mint-button, .sc-query-button, .sc-transfer-button{
+    font-size:1.5em !important;
+  }
+ 
+
+
+
+
+
+
+  
 }
 
 

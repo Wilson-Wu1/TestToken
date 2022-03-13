@@ -130,6 +130,18 @@ const MyFirstApp = () => {
         x.className = "";
     }
 
+    function walletErrorToast() {
+        console.log("badWalletToast")
+        // Get the snackbar DIV
+        var x = document.getElementById("incorrectWalletDiv");
+      
+        // Add the "show" class to DIV
+        x.className = "show";
+      
+        // After 3 seconds, remove the show class from DIV
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+    }
+
 
     /* ---------Calls--------- */
     const getNumOfUsersHandler = async () => {
@@ -175,12 +187,10 @@ const MyFirstApp = () => {
        setMintTokens(event.target.value)
     }
     
-    const mintTokensHandler = async() =>{
-        const gasPrice = await web3.eth.getGasPrice();
-        gasPrice = parseInt(gasPrice)
-        //console.log(typeof gasPrice)
-        //console.log(gasPrice)      
+    const mintTokensHandler = async() =>{   
         try{
+            const gasPrice = await web3.eth.getGasPrice();
+            gasPrice = parseInt(gasPrice)
             await vmContract.methods.mint(mintTokens).send({
                 from: address,
                 gasPrice: gasPrice
@@ -212,11 +222,10 @@ const MyFirstApp = () => {
     }
 
     const transferTokenHandler = async() =>{
-        const gasPrice = await web3.eth.getGasPrice();
-        gasPrice = parseInt(gasPrice)
-        //console.log(typeof gasPrice)
-        //console.log(gasPrice)
+
         try{
+            const gasPrice = await web3.eth.getGasPrice();
+            gasPrice = parseInt(gasPrice)
             await vmContract.methods.transfer(transferAddress, web3.utils.toWei(transferAmount, 'ether')).send({
                 from: address,
                 gasPrice: gasPrice
@@ -271,12 +280,16 @@ const MyFirstApp = () => {
                 }
             } catch(err){
                 setError(err.message)
+                walletErrorToast()
                 console.log(err.message)
             }
 
         }
         else{
-            console.log("PLEASE INSTALL METAMASK")
+            setError("Please Install The Metamask Wallet")
+            walletErrorToast()
+           
+            console.log("Please Install Metamask Wallet")
         }
 
     }
@@ -303,44 +316,54 @@ const MyFirstApp = () => {
               },
             });
           
-            if (wasAdded) {
-              console.log('Thanks for your interest!');
-            } else {
-              console.log('Your loss!');
-            }
           } catch (error) {
             console.log(error);
+            setError(error.message);
+            walletErrorToast();
           }
     }
 
-
+    /* ---------Nav for Mobile Use--------- */
+    function openNav() {
+        console.log("OpenNav Called")
+        var x = document.getElementById("nav")
+        x.style.display = "block";
+        console.log("display is none, so set to block")
+    }
+    function closeNav() {
+        console.log("OpenNav Called")
+        var x = document.getElementById("nav")
+        x.style.display = "none";
+        console.log("display is block, so set to none")
+    }
 
     return( 
         <div className= "app">
             <Head>
-                <title>Token</title>
+                <title>Willy Token</title>
                 <meta name="description" content="A blockchain app" />    
                 
             </Head>
             
             <div id="copyToClipboardDiv">Address Copied To Clipboard</div>
             <div id="incorrectNetworkDiv">Incorrect Network. Please switch to the Polygon Network</div>
+            <div id="incorrectWalletDiv">{error}</div>
             <body>
                 <header>
                     <div className="test">
-                    <div className="symbol_logo">
-                    <img src = "https://upload.wikimedia.org/wikipedia/commons/9/9e/Professionelle_reinigung_%28W%29.svg" className="nav-image" />
-                    <a className="logo" href="#">Willy <span>Token</span></a>   
+                        <div className="symbol_logo">
+                            <img src = "https://upload.wikimedia.org/wikipedia/commons/9/9e/Professionelle_reinigung_%28W%29.svg" className="nav-image" />
+                            <a className="logo" href="#">Willy <span>Token</span></a>   
                     
-                    </div>
-                    <nav>
-                        <ul className ="primary-nav" >
-                            
-                            <li><a href="https://rinkeby.etherscan.io/address/0xd4321a7fcbf5115f6d9a2078fbfddf4307c67811" target="_blank" rel="noreferrer">Contract</a></li> 
-                            <li><a href="https://github.com/Wilson-Wu1" target="_blank" rel="noreferrer">GitHub</a></li> 
-                            <li><a href="https://www.linkedin.com/in/wilson-wu-2021/" target="_blank" rel="noreferrer">LinkedIn</a></li> 
-                        </ul>                                                                                 
-                    </nav>
+                        </div>
+                        <nav id="nav">
+                            <ul className ="primary-nav" >
+                                <li className = "exit-button-li"> <a className = "exit-button" onClick = {() => {closeNav();}}>Exit</a></li>
+                                <li><a href="https://polygonscan.com/address/0x2057201f0302d873439fea544ed3c7542acc48e1" target="_blank" rel="noreferrer">Contract</a></li> 
+                                <li><a href="https://github.com/Wilson-Wu1/WillyToken" target="_blank" rel="noreferrer">GitHub</a></li> 
+                                <li><a href="https://www.linkedin.com/in/wilson-wu-2021/" target="_blank" rel="noreferrer">LinkedIn</a></li> 
+                            </ul>                                                                                 
+                        </nav>
                     </div>
 
 
@@ -363,15 +386,16 @@ const MyFirstApp = () => {
                         }
 
                     </div>
-                
-
+                    <svg viewBox="0 0 100 80" width="28" height="28" className="hamburger" onClick = {() => {openNav();}}>
+                        <rect width="100" height="10"></rect>
+                        <rect y="30" width="100" height="10"></rect>
+                        <rect y="60" width="100" height="10"></rect>
+                    </svg>
                 </header>
 
 
-
-                
                 <section className="hero">
-                <p>{error}</p>
+                
                     <div className="container">
                         
                    
@@ -407,13 +431,14 @@ const MyFirstApp = () => {
                     <div className = "token-info-medium-div"><p className ="token-info-medium1">Token owners will have special access to the upcoming Big Willy NFT launch and DAO for project governance.</p></div>
                     <p className ="token-info-small">Definetly not a simple ERC20 Token</p>
                     <div className="token-container1">
-                        
+                    
                         <div className="token-left">Number Of Users
                             <div className="token-left-box">
                                 <p className="token-left-text">{users}</p>
                             </div>
                             
                         </div>
+                        
 
                         <div className="token-middle">Circulating Supply 
                             <div className="token-middle-box">
@@ -433,7 +458,7 @@ const MyFirstApp = () => {
                 <section className="sc">
                     
                     <p className="sc-header" id="trade-now-anchor">Own a Willy Today</p>
-                    <p className="sc-header1">It&apos;s As Easy As 1 - 2 - 3</p>
+                    <p className="sc-header1">It&apos;s As Easy As <span className="sc-123">1 - 2 - 3</span></p>
                     
                     <div className = "sc-container">
                     
