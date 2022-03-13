@@ -1,4 +1,4 @@
-# [Willytoken](willytoken.ca)
+# [Willytoken](www.willytoken.ca)
 
 
 A basic decentralized application comprised of an ERC20 token smart contract and a front-end website.
