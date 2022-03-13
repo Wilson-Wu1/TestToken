@@ -429,7 +429,7 @@ const MyFirstApp = () => {
                     <p className ="token-info-text-bottom">Trusted by Billions</p>
                     <div className = "token-info-medium-div"><p className ="token-info-medium">A modern meta-verse, MMORPG, Play-To-Earn project with over a million users.</p></div>
                     <div className = "token-info-medium-div"><p className ="token-info-medium1">Token owners will have special access to the upcoming Big Willy NFT launch and DAO for project governance.</p></div>
-                    <p className ="token-info-small">Definetly not a simple ERC20 Token</p>
+                    <p className ="token-info-small">Definitely not a simple ERC20 Token</p>
                     <div className="token-container1">
                     
                         <div className="token-left">Number Of Users
