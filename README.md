@@ -1,7 +1,13 @@
-# WillyToken
-A basic decentralized application comprised of an ERC20 token smart contract and a front-end website.
-The contract was deployed on the Polygon Mainnet.
+# [Willytoken](willytoken.ca)
 
+
+A basic decentralized application comprised of an ERC20 token smart contract and a front-end website.
+
+The [contract](https://polygonscan.com/address/0x2057201f0302d873439fea544ed3c7542acc48e1) was deployed on the Polygon Mainnet.
+
+
+
+## Functions
 The frontend supports the following functions:
 
 - Query an addresses balance of Willy Tokens
