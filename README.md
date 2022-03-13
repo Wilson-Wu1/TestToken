@@ -1,6 +1,6 @@
 # Willy Token
 
-[Willy Token](https://willytoken.ca)
+[Willy Token](http://willytoken.ca/)
 is a basic decentralized application comprised of an ERC20 token smart contract and a front-end website.
 
 The [contract](https://polygonscan.com/address/0x2057201f0302d873439fea544ed3c7542acc48e1) was deployed on the Polygon Mainnet.
